@@ -1,53 +1,56 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet,Button,  Image } from 'react-native';
-import basicsData from './basicsData'
-import Answers from "./Answers"
+import React from "react"
+import { View, Text, StyleSheet, Button, Alert} from "react-native"
 
 
 
 
-
-function Practice(props){
-
-    const [practices, setPracticess] = useState(basicsData[0].topics[0].practices)
-    const {navigation} = props
-   
-   
- 
+function Answers(props){
 
 
-   
+    const {practice} = props
 
-
-
-    return (
-        <View style={styles.screen}>
-            <Text style={styles.fizText}>FIZ</Text>
-            <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
-            <Text style={{top: '2%' , fontSize: 40, marginBottom: '5%'}}>Practice</Text>
-            
-        { practices.map(practice => 
-            
-        < >
-            <View style={styles.view}> 
-                <Text style={styles.practiceQuestion}>{practice.question}</Text>
-            </View>
-            <View style={styles.imageView}>
-                <Image key={practice.image} style={styles.imageView} source={practice.image}></Image> 
-            </View>
-            <View style={styles.imageView}>
-                <Answers id={practice.id} practice={practice}/>
-            </View>
-           
-        
-          </> 
-        
+    const correctAlert = ()=> {
+        Alert.alert(
+         "You are correct!",
+            "Fiz On!",
+         [
+             {
+                text: "Return to Practice",
+                onPress: ()=> console.log("Don't forget to speak your anwers out loud!"),
+                style: "answer"
+            }
+        ]
         )
     }
+    const incorrectAlert = ()=> {
+        Alert.alert(
+         "Incorrect.",
+            "Keep Trying!",
+         [
+             {
+                text: "Return to Practice",
+                onPress: ()=> console.log("You are incorrect!"),
+                style: "answer"
+            }
+        ]
+        )
+    }
+    return (
+        <>
+
+    {practice.answers.map(answer =>      
+                   
+        <View key={answer.id} style={styles.view}>
+            <Text>{answer}</Text>
+            <Button  title={'check your answer'} onPress={answer === practice.correctAnswer? correctAlert : incorrectAlert}/>
+            </View>
     
-        </View>
+    )}
+
+        </>
     )
 }
+
 const styles = StyleSheet.create({
     screen:{
         flex: 1,
@@ -111,4 +114,6 @@ const styles = StyleSheet.create({
     }
 
 })
-export default Practice
+
+
+export default Answers

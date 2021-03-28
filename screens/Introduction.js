@@ -17,9 +17,9 @@ const Introduction = props =>{
         <Text style={{top: '2%' , fontSize: 40}}>Introduction</Text>
         <Text style={styles.textGet}>JavaScript Basics</Text>
        
-        { jsBasics.map(jsBasic => 
-            <View key={jsBasic.title} style={styles.jsBasics}> 
-                <Text style={styles.jsBasicsText}>{jsBasic.title}</Text>
+        { basicsData[0][0].reviews.map(review => 
+            <View key={review.title} style={styles.jsBasics}> 
+                <Text style={styles.jsBasicsText}>{review.reviewTitle}</Text>
                 <Button style={styles.button} title='Review' onPress={() => navigation.navigate("Review")}/>
                 <Button style={styles.button} title='Practice' onPress={() => navigation.navigate("Practice")}/>
             </View>
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default JavaScriptBasics
+export default Introduction

@@ -18,8 +18,8 @@ const JavaScriptBasics = props =>{
         { jsBasics.map(jsBasic => 
             <View key={jsBasic.title} style={styles.jsBasics}> 
                 <Text style={styles.jsBasicsText}>{jsBasic.title}</Text>
-                <Button style={styles.button} key={'A1B2'} title='Review' onPress={() => navigation.navigate(jsBasic.reviews[0].review)}/>
-                <Button style={styles.button} key={'A2B3'} title='Practice' onPress={() => navigation.navigate(jsBasic.practices[0].practice)}/>
+                <Button style={styles.button} key={'A1B2'} title='Review' onPress={() => navigation.navigate(jsBasic.reviews[0].reviewTitle)}/>
+                <Button style={styles.button} key={'A2B3'} title='Practice' onPress={() => navigation.navigate(jsBasic.practices[0].practiceTitle)}/>
             </View>
 
         )

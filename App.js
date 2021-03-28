@@ -7,6 +7,7 @@ import LearningLevels from './screens/LearningLevels';
 import Landing from './screens/Landing';
 import Review from './screens/Review';
 import Practice from './screens/Practice';
+import HTMLBasics from './screens/HTMLBasics';
 import JavaScriptBasics from './screens/JavaScriptBasics'
 import { StyleSheet } from 'react-native';
 
@@ -23,7 +24,7 @@ function App() {
               <Stack.Screen name="Practice" component={Practice}/>
               <Stack.Screen name="Review" component={Review}/>
               <Stack.Screen name="JavaScript Basics" component={JavaScriptBasics}/>
-              <Stack.Screen name="HTML Basics" component={JavaScriptBasics}/>
+              <Stack.Screen name="HTML Basics" component={HTMLBasics}/>
               <Stack.Screen name="CSS Basics" component={JavaScriptBasics}/>
               <Stack.Screen name="React Basics" component={JavaScriptBasics}/>
               <Stack.Screen name="Git Basics" component={JavaScriptBasics}/>
