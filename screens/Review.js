@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image } from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import basicsData from './basicsData'
 
 
@@ -33,6 +33,9 @@ function Review(props){
             <View style={styles.imageView}>
                 <Image key={review.image} style={{width: "100%", height: 100}} source={review.image}></Image> 
             </View>
+            <Pressable onPress={()=> {Linking.openURL("https://codepen.io/gaearon/pen/GjPyQr?editors=0011")}}>
+            <Text style={styles.codepen}>Try it on CodePen</Text>
+        </Pressable>
             <View style={styles.view}>
                 <Text style={styles.explanationText}>{review.explanation}</Text>
            

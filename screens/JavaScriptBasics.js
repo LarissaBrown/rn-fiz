@@ -13,7 +13,7 @@ const JavaScriptBasics = props =>{
     <View style={styles.screen}>
         <Text style={styles.fizText}>FIZ</Text>
         <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
-        <Text style={{top: '2%' , fontSize: 40}}>JavaScript Basics</Text>
+        <Text style={{top: '2%' , fontSize: 30}}>JavaScript Basics</Text>
        
         { jsBasics.map(jsBasic => 
             <View key={jsBasic.title} style={styles.jsBasics}> 
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
 
     },
     fizText: {
-        fontSize: 24,
-        fontWeight: 'bold'
+        fontSize: 24
+       
     },
     textGet: {
         top: 10,

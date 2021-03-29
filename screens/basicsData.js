@@ -7,20 +7,21 @@ topics: [{
     {   reviewTitle: "Review",
         title: "console.log()", 
         image: `${require("./consoleLog.png")}`, 
-        explanation: `The console.log() method is used to log or print messages to the console. It can also be used to print objects and other information.` 
+        explanation: `The console.log() method is used to log or print messages to the console. 
+        It can also be used to print objects and other information.` 
     }
     ],
     practices: [
     {   practiceTitle: "Practice",
-        question: "Practice Question 1",
+        question: "Eliminate the option which does NOT exhibit the use of a Number data type.",
         image: `${require("./consoleLog.png")}`,
         answers: [
-            "This is correct.",
-            "incorrect", 
-            "incorrect", 
-             "incorrect"
+            "console.log('1')",
+            "console.log(1.5)", 
+            "console.log(5000)", 
+             "console.log(1)"
         ],
-        correctAnswer: "This is correct."
+        correctAnswer: "console.log('1')"
     }
 ]
 //}, 
