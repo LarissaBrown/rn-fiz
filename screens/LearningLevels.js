@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     levelTitle: {
         color: 'black',
-        fontSize: 36,
+        fontSize: 30,
 
     }
 })

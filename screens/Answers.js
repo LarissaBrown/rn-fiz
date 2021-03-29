@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { View, Text, StyleSheet, Button, Alert} from "react-native"
+import PracticeQuestions from './PracticeQuestions'
 
 
 
 
 function Answers(props){
+console.log('answersProps',props)
 
+const [correctAnswers, setCorrectAnswers] = useState([])
 
     const {practice} = props
 
@@ -15,10 +18,17 @@ function Answers(props){
             "Fiz On!",
          [
              {
-                text: "Return to Practice",
-                onPress: ()=> console.log("Don't forget to speak your anwers out loud!"),
+                text: "Go to next Practice Question.",
+                onPress: ()=> {correctAnswers.push(practice.answer) 
+                    console.log('correctAnswersArr', correctAnswers)
+                    console.log('practiceKey', practice.key)
+                return (
+                    <PracticeQuestions />
+                    )
+                },
                 style: "answer"
             }
+        
         ]
         )
     }
@@ -35,16 +45,24 @@ function Answers(props){
         ]
         )
     }
+
+
+    //make the index a random index rather than in order
     return (
         <>
 
-    {practice.answers.map(answer =>      
+    {practice.answers.map((answer, index) =>    {
+
+        
+
+    return (  
                    
-        <View key={answer.id} style={styles.view}>
-            <Text>{answer}</Text>
+        <View key = {index}  style={styles.view}>
+            <Text style={styles.answerText}>{answer}</Text>
             <Button  title={'check your answer'} onPress={answer === practice.correctAnswer? correctAlert : incorrectAlert}/>
             </View>
-    
+    )}
+
     )}
 
         </>
@@ -75,6 +93,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
       },
     view: {
+        borderStyle: 'solid',
+        borderColor: 'blue',
+        borderWidth: 2,
         width: '100%',
         height: 'auto',
         padding: 10,
