@@ -7,7 +7,8 @@ import Answers from "./Answers"
 function PracticeQuestion(props){
     console.log('questionsProps', props)
 
-    const {image, key, practice, answers, question} = props
+    const {image, key, practice, answers, question, practices, navigation} = props
+    console.log("THIS", practice)
 
 
 
@@ -23,7 +24,7 @@ function PracticeQuestion(props){
             <Text style={styles.codepen}>Try it on CodePen</Text>
         </Pressable>
         <View style={styles.imageView}>
-            <Answers key={key} practice={practice} answers={answers}/>
+            <Answers navigation={navigation} key={key} practice={practice} practices={practices} answers={answers}/>
         </View>
     </>
 

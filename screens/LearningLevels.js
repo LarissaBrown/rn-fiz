@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {View, Text, StyleSheet, Button } from 'react-native'
 import  basicsData from './basicsData'
+import Header from "./Header"
 
 const { topics }  = basicsData
 
@@ -12,6 +13,7 @@ const LearningLevels = props => {
     return (
    
         <View style={styles.screen}>
+            <Header navigation={navigation}/>
         <Text style={styles.levelsText}>[...Levels ]</Text>
            
                 {levels.map((level) => 

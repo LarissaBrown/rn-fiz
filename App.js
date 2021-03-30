@@ -3,21 +3,39 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LearningHome from './screens/LearningHome';
+import FidgetBreak from './screens/FidgetBreak'
 import LearningLevels from './screens/LearningLevels';
 import Landing from './screens/Landing';
 import Review from './screens/Review';
 import Practice from './screens/Practice';
+import Header from './screens/Header'
 import HTMLBasics from './screens/HTMLBasics';
+import PracticeQuestions from './screens/PracticeQuestions'
 import JavaScriptBasics from './screens/JavaScriptBasics'
-import { StyleSheet } from 'react-native';
+import { StyleSheet, AppState } from 'react-native';
 
 
 const Stack = createStackNavigator()
 
-function App() {
+function App(props) {
+
+  // const [appState, setAppState] = useState(AppState.currentState)
+  
+ 
+  // const handleAppStateChange = (state: any ) => {
+  //   console.log(state);
+  // }
+  // useEffect(() => {
+  //   AppState.addEventListener('change', handleAppStateChange);
+  //   return (() => {
+  //     AppState.removeEventListener('change', handleAppStateChange);
+  //   })
+  // }, []);
+
     return (
       <NavigationContainer style={styles.navContainer} >
           <Stack.Navigator>
+              
               <Stack.Screen name="Landing" component={Landing} />
               <Stack.Screen name="LearningHome" component={LearningHome} />
               <Stack.Screen name="LearningLevels" component={LearningLevels} />
@@ -29,6 +47,8 @@ function App() {
               <Stack.Screen name="React Basics" component={JavaScriptBasics}/>
               <Stack.Screen name="Git Basics" component={JavaScriptBasics}/>
               <Stack.Screen name="Node Basics" component={JavaScriptBasics}/>
+              <Stack.Screen name="Header" component={Header}/>
+              <Stack.Screen name="FidgetBreak" component={FidgetBreak}/>
           </Stack.Navigator>
       </NavigationContainer>
     );

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {View, Text, Image, Button, StyleSheet, Pressable, Animated} from 'react-native';
 import basicsData from './basicsData'
+import Header from "./Header"
 
 
 
@@ -11,15 +12,14 @@ const JavaScriptBasics = props =>{
     const { navigation } = props
     return (
     <View style={styles.screen}>
-        <Text style={styles.fizText}>FIZ</Text>
-        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+        <Header navigation={navigation}/>
         <Text style={{top: '2%' , fontSize: 30}}>JavaScript Basics</Text>
        
         { jsBasics.map(jsBasic => 
             <View key={jsBasic.title} style={styles.jsBasics}> 
                 <Text style={styles.jsBasicsText}>{jsBasic.title}</Text>
-                <Button style={styles.button} key={'A1B2'} title='Review' onPress={() => navigation.navigate(jsBasic.reviews[0].reviewTitle)}/>
-                <Button style={styles.button} key={'A2B3'} title='Practice' onPress={() => navigation.navigate(jsBasic.practices[0].practiceTitle)}/>
+                <Button jsBasic={jsBasic} style={styles.button} key={'A1B2'} title='Review' onPress={() => navigation.navigate(jsBasic.reviews[0].reviewTitle)}/>
+                <Button jsBasic={jsBasic}style={styles.button} key={'A2B3'} title='Practice' onPress={() => navigation.navigate(jsBasic.practices[0].practiceTitle)}/>
             </View>
 
         )
@@ -38,19 +38,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(190, 245,73, .6)' 
 
     },
-    fizText: {
-        fontSize: 24
-       
-    },
-    textGet: {
-        top: 10,
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    spicy:{
-        color: '#EA5B1E',
-        fontWeight: 'bold'
-      },
+   
     jsBasics: {
         top: '8%',
         width: '100%',

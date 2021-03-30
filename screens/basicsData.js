@@ -22,6 +22,18 @@ topics: [{
              "console.log(1)"
         ],
         correctAnswer: "console.log('1')"
+    },
+    {
+        practiceTitle: "Practice",
+        question: "Question.",
+        image: `${require("./consoleLog.png")}`,
+        answers: [
+            "wrong",
+            "nope", 
+            "correct", 
+             "not"
+        ],
+        correctAnswer: "correct"
     }
 ]
 //}, 

@@ -1,10 +1,12 @@
 import 'react-native-gesture-handler';
 import React, { useRef } from 'react';
-import { StyleSheet, Button, Text, View , Animated, } from 'react-native';
+import { StyleSheet, Button, Text, View , Animated} from 'react-native';
+
+
 
 const Landing = (props) => {
 
- const {navigation, name} = props
+ const {navigation} = props
  
  const fadeAnim2 = useRef(new Animated.Value(0)).current
  
@@ -34,6 +36,7 @@ const Landing = (props) => {
         justifyContent: 'center',
         opacity: fadeAnim2,       
       }} >
+  
   <View style={{flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
     
     
@@ -41,10 +44,10 @@ const Landing = (props) => {
         <View style={styles.smBubble}></View>
         <View style={styles.lgBubble}></View>
         <Text style={styles.fizText}>FIZ</Text>
-        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODE</Text>
         <View style={styles.mdBubble}></View>
       
-   
+       
     <View style={styles.buttonHere}>
       <Button 
          title="HERE"
@@ -61,11 +64,7 @@ const Landing = (props) => {
      
 
   const styles = StyleSheet.create({
-  
-    screen: {
 
-      backgroundColor:'white'
-    },
       container: {
         width: '100%',
         backgroundColor: 'purple',

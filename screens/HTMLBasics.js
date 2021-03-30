@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {View, Text, Image, Button, StyleSheet, Pressable, Animated} from 'react-native';
 import basicsData from './basicsData'
+import Header from "./Header"
 
 
 
@@ -11,8 +12,7 @@ const JavaScriptBasics = props =>{
     const { navigation } = props
     return (
     <View style={styles.screen}>
-        <Text style={styles.fizText}>FIZ</Text>
-        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+       <Header/>
         <Text style={{top: '2%' , fontSize: 40}}>JavaScript Basics</Text>
        
         { jsBasics.map(jsBasic => 
@@ -38,19 +38,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(190, 245,73, .6)' 
 
     },
-    fizText: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    textGet: {
-        top: 10,
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    spicy:{
-        color: '#EA5B1E',
-        fontWeight: 'bold'
-      },
+   
     jsBasics: {
         top: '8%',
         width: '100%',

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {View, Text, Image, Button, StyleSheet, Pressable, Animated} from 'react-native';
 import basicsData from './basicsData'
+import Header from './Header'
 
 
 
@@ -9,19 +10,18 @@ import basicsData from './basicsData'
 const Introduction = props =>{
     const [reviews, setReview] = useState(basicsData[0][0].reviews)
     const [practices, setPractice] = useState(basicsData[0][0].practices)
-    const { navigation } = props
+    const { navigation, jsBasic } = props
     return (
     <View style={styles.screen}>
-        <Text style={styles.fizText}>FIZ</Text>
-        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+       <Header navigation={navigation}/>
         <Text style={{top: '2%' , fontSize: 40}}>Introduction</Text>
         <Text style={styles.textGet}>JavaScript Basics</Text>
        
-        { basicsData[0][0].reviews.map(review => 
-            <View key={review.title} style={styles.jsBasics}> 
-                <Text style={styles.jsBasicsText}>{review.reviewTitle}</Text>
-                <Button style={styles.button} title='Review' onPress={() => navigation.navigate("Review")}/>
-                <Button style={styles.button} title='Practice' onPress={() => navigation.navigate("Practice")}/>
+        { jsBasic[0].reviews.map(review => 
+            <View key={review.title} style={styles.jsBasic}> 
+                <Text style={styles.jsBasicText}>{review.reviewTitle}</Text>
+                <Button jsBasic={jsBasic} review={review} style={styles.button} title='Review' onPress={() => navigation.navigate("Review")}/>
+                <Button jsBasic={jsBasic} practice={practice} style={styles.button} title='Practice' onPress={() => navigation.navigate("Practice")}/>
             </View>
 
         )
@@ -40,20 +40,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(190, 245,73, .6)' 
 
     },
-    fizText: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    textGet: {
-        top: 10,
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    spicy:{
-        color: '#EA5B1E',
-        fontWeight: 'bold'
-      },
-    jsBasics: {
+    
+    jsBasic: {
         top: '8%',
         width: '100%',
         height: 60,
@@ -71,7 +59,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
        
     },
-    jsBasicsText: {
+    jsBasicText: {
         
         position:'relative',
         flexDirection: 'row',

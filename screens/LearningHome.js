@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, Pressable,Screen,  TextInput, Button, Text, Modal, Image} from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
+import Header from "./Header"
 
 
 
@@ -10,16 +11,22 @@ const LearningHome = props => {
     return(
   
     <View style={styles.screen}>
-         <Text style={styles.fizText}>FIZ</Text>
-        <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+            <Header navigation={navigation}/>
+            <View style={styles.buttonFidgit}>
+            <Button 
+                title="FidgetBreak"
+                onPress={() => navigation.navigate('FidgetBreak')}
+            />
+            </View>
             <View style={styles.learningButtonContainer}>
-            <Pressable 
-            onPress={() => navigation.navigate('LearningLevels')
-        }>
-            <Text style={styles.learningText}>[...Learning ]</Text>
+            <Pressable
+                 onPress={() => navigation.navigate('LearningLevels')
+                    }>
+                <Text style={styles.learningText}> [...Learning ] </Text>
              
-                <View style={styles.smBubble}></View>
-                </Pressable> 
+               
+            </Pressable> 
+            <View style={styles.smBubble}></View>
             </View>
       
                 <Image source={require('./ifSadMeme.png')} style={styles.meme}>
@@ -35,8 +42,8 @@ const LearningHome = props => {
                 onAnimationComplete={() => console.log('onAnimationComplete')}/>
                 <View style={styles.lgBubble}></View>
               
-                    <Text style={styles.rpText,{fontSize: 42, paddingLeft: 30 ,paddingRight: 30}}>Review</Text>
-                <Text style={styles.minutes}>5 min</Text>
+                    <Text style={styles.reviewText}>Review</Text>
+                
           
             </View>
             <View style={styles.buttonContainer}>
@@ -49,8 +56,8 @@ const LearningHome = props => {
                 backgroundColor='#3d5875'
                 onAnimationComplete={() => console.log('onAnimationComplete')}/>
             
-                <Text style={styles.rpText,{fontSize: 42, paddingLeft: 30 ,paddingRight: 30}}>Practice</Text>
-                <Text style={styles.minutes}>5 min</Text>
+                <Text style={styles.practiceText}>Practice</Text>
+              
           
             </View>
             <View style={styles.mdBubble}></View>
@@ -67,19 +74,7 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center'    
     },
-    fizText: {
-        fontSize: 32
-        
-    },
-    textGet: {
-       
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    spicy:{
-        color: '#EA5B1E',
-        fontWeight: 'bold'
-      },
+   
     buttonContainer: {
         //flex: 4,
         position: 'relative',
@@ -101,16 +96,14 @@ const styles = StyleSheet.create({
     },
     learningButtonContainer: {
         position: 'relative',
-        //flex:1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         width: 350,
-        height: '15%',
-        alignItems: 'center',
+        height: '10%',
         backgroundColor: '#C4C4C4',
-        marginTop:  '6%',
-        marginBottom: '5%'
+        marginTop:  '1%',
+        marginBottom: '5%',
+        textAlign:'center'
 ,       justifyContent: 'space-between',
-        paddingHorizontal: 15,
         borderRadius: 10,
         opacity: 50,
         shadowColor: 'black',
@@ -121,20 +114,28 @@ const styles = StyleSheet.create({
    
     learningText:{
         position:'relative',
-        flexDirection: 'row',
-        fontSize: 60,
-        textAlign:'center'
-      
-       
+        flexDirection: 'column',
+        paddingTop: '3%',
+        fontSize: 50,
+        textAlign: 'center',
+        alignItems: 'center',
     },
    
-    rpText: {
+    practiceText: {
+        flexDirection: 'column',
+        position: 'relative',
+        fontSize: 42,
+        paddingRight: 84,
+        textAlign: 'center'
+
+    },
+    reviewText: {
         flexDirection: 'row',
         position: 'relative',
-        fontSize: 50,
-        paddingTop: '10%',
-        textAlign: 'left'
-
+        fontSize: 42,
+        paddingTop: '3%',
+        paddingRight: 100,
+        textAlign: 'center'
     },
     meme: {
         flex: 1,
@@ -158,7 +159,6 @@ const styles = StyleSheet.create({
     smBubble: {
         width: 20,
         height: 20,
-        right: 60,
         backgroundColor: 'rgba(190, 245,73, .7)',
         borderRadius: 50
     
@@ -173,12 +173,16 @@ const styles = StyleSheet.create({
       lgBubble: {
         width:40,
         height: 40,
-        left: 150,
+        left: 200,
         bottom: 30,
         backgroundColor: 'rgba(190, 245,73, .7)',
         borderRadius: 50,
         
         
+      },
+      buttonFidget: {
+          padding: 0,
+
       }
 })
 
