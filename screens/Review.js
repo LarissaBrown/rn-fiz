@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import basicsData from './basicsData'
+import Header from "./Header"
 
 
 
@@ -10,18 +11,10 @@ function Review(props){
 
     const [reviews, setReviews] = useState(basicsData[0].topics[0].reviews)
     const {navigation} = props
-   
- 
-
-
-   
-
-
 
     return (
         <View style={styles.screen}>
-            <Text style={styles.fizText}>FIZ</Text>
-            <Text style={styles.textGet}>GET YOUR <Text style={styles.spicy}>SPICY</Text> SHOT OF CODING</Text>
+            <Header navigation={navigation}/>
             <Text style={{top: '2%' , fontSize: 40, marginBottom: '5%'}}>Review</Text>
        
         { reviews.map(review => {
@@ -58,19 +51,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(190, 245,73, .6)' 
 
     },
-    fizText: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    textGet: {
-        top: 10,
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    spicy:{
-        color: '#EA5B1E',
-        fontWeight: 'bold'
-      },
     view: {
     
         width: '100%',

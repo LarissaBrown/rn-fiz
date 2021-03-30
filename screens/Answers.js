@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { View, Text, StyleSheet, Button, Alert} from "react-native"
-import PracticeQuestions from './PracticeQuestions'
-
+import { View, Text, StyleSheet, Button, Alert, RecyclerViewBackedScrollView} from "react-native"
+import basicsData from './basicsData'
+import Review from "./Review"
 
 
 
@@ -9,23 +9,20 @@ function Answers(props){
 console.log('answersProps',props)
 
 const [correctAnswers, setCorrectAnswers] = useState([])
-
-    const {practice} = props
+const [updatedPracticesArr, setUpdatedPracticesArr] = useState(basicsData)
+    const {practice, practices, navigation} = props
+    console.log("navigateAnswers", navigation)
+    console.log ("THIS", practices)
 
     const correctAlert = ()=> {
+        practices.shift()
         Alert.alert(
          "You are correct!",
             "Fiz On!",
          [
              {
                 text: "Go to next Practice Question.",
-                onPress: ()=> {correctAnswers.push(practice.answer) 
-                    console.log('correctAnswersArr', correctAnswers)
-                    console.log('practiceKey', practice.key)
-                return (
-                    <PracticeQuestions />
-                    )
-                },
+                onPress: ()=> navigation.navigate('Practice') ,
                 style: "answer"
             }
         
