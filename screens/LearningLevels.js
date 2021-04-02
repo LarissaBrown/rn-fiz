@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import {View, Text, StyleSheet, Button } from 'react-native'
 import  basicsData from './basicsData'
-import Header from "./Header"
+import Header from "../components/Header"
 
-const { topics }  = basicsData
 
 
 
 const LearningLevels = props => {
     const {navigation} = props
     const [levels, setLevels] = useState(basicsData)
+    const { topics }  = basicsData
+    const key = Math.floor(Math.random()*10000000 + 6)
+
+
     return (
    
         <View style={styles.screen}>
@@ -17,7 +20,7 @@ const LearningLevels = props => {
         <Text style={styles.levelsText}>[...Levels ]</Text>
            
                 {levels.map((level) => 
-                <View style={styles.level} key={level.title}>
+                <View style={styles.level} key={key}>
                     
                 <Button style={styles.levelTitle}title={level.title} onPress={() => navigation.navigate(level.title)}/>
                 </View>

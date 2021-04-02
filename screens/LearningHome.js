@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, Pressable,Screen,  TextInput, Button, Text, Modal, Image} from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import Header from "./Header"
+import Header from "../components/Header"
 
 
 

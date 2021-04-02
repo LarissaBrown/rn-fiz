@@ -8,9 +8,8 @@ import LearningLevels from './screens/LearningLevels';
 import Landing from './screens/Landing';
 import Review from './screens/Review';
 import Practice from './screens/Practice';
-import Header from './screens/Header'
-import HTMLBasics from './screens/HTMLBasics';
-import PracticeQuestions from './screens/PracticeQuestions'
+import Header from './components/Header'
+import HTMLBasics from './screens/HTMLBasics'
 import JavaScriptBasics from './screens/JavaScriptBasics'
 import { StyleSheet, AppState } from 'react-native';
 

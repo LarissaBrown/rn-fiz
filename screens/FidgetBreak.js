@@ -1,8 +1,9 @@
 import React from 'react'
-import {View, StyleSheet,Text, Alert, TouchableHighlight} from "react-native"
+import {View, StyleSheet,Text, Alert, Animated, TouchableHighlight} from "react-native"
 import Draggable from 'react-native-draggable'
-import Header from "./Header"
-import CountdownTimer from "../components/CountdownTimer"
+import Header from "../components/Header"
+import Constants from 'expo-constants'
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 
 
@@ -45,8 +46,25 @@ return (
             </Draggable>
        
         </View>
-        <CountdownTimer navigation={navigation}/>
-
+        <View style={styles.container}>
+      <CountdownCircleTimer
+        isPlaying
+        duration={50}
+        colors="#004777"
+        onAnimationComplete={() => { {navigation.navigate('LearningHome')}
+          return [true, 0]
+        }}
+      >
+        {({ remainingTime, animatedColor }) => (
+          <Animated.Text
+            style={{ ...styles.remainingTime, color: animatedColor }}>
+            {remainingTime}
+        
+          </Animated.Text>
+        )}
+      </CountdownCircleTimer>
+    </View>
+   
     </View>
 
     )
@@ -81,6 +99,17 @@ const styles = StyleSheet.create({
         left: 90,
         backgroundColor: "red",
         borderRadius: 50
+      },
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#ecf0f1',
+        padding: 8,
+      },
+      remainingTime: {
+        fontSize: 46,
       },
       breakYard: {
           width:'100%',

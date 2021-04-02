@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {View, Text, Image, Button, StyleSheet, Pressable, Animated} from 'react-native';
 import basicsData from './basicsData'
-import Header from "./Header"
+import Header from "../components/Header"
 
 
 
@@ -10,13 +10,17 @@ import Header from "./Header"
 const JavaScriptBasics = props =>{
     const [jsBasics, setJsBasics] = useState(basicsData[0].topics)
     const { navigation } = props
+   
+    const key = Math.floor(Math.random()*10000000)
+
+    
     return (
     <View style={styles.screen}>
        <Header/>
         <Text style={{top: '2%' , fontSize: 40}}>JavaScript Basics</Text>
        
         { jsBasics.map(jsBasic => 
-            <View key={jsBasic.title} style={styles.jsBasics}> 
+            <View key={random} style={styles.jsBasics}> 
                 <Text style={styles.jsBasicsText}>{jsBasic.title}</Text>
                 <Button style={styles.button} key={'A1B2'} title='Review' onPress={() => navigation.navigate(jsBasic.reviews[0].review)}/>
                 <Button style={styles.button} key={'A2B3'} title='Practice' onPress={() => navigation.navigate(jsBasic.practices[0].practice)}/>

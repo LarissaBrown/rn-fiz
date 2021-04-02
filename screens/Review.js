@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable , Linking} from 'react-native';
 import basicsData from './basicsData'
-import Header from "./Header"
+import Header from "../components/Header"
+import {v4} from "uuid"
 
 
 
@@ -11,7 +12,7 @@ function Review(props){
 
     const [reviews, setReviews] = useState(basicsData[0].topics[0].reviews)
     const {navigation} = props
-
+    
     return (
         <View style={styles.screen}>
             <Header navigation={navigation}/>
@@ -19,16 +20,16 @@ function Review(props){
        
         { reviews.map(review => {
             return (
-        <View key={review.title} >
+        <View key={v4()} >
             <View style={styles.view}> 
                 <Text style={styles.reviewTitle}>{review.title}</Text>
             </View>
             <View style={styles.imageView}>
-                <Image key={review.image} style={{width: "100%", height: 100}} source={review.image}></Image> 
+                <Image key={review.image} style={{width: "100%", height: 100}} source={(review.image)}></Image> 
             </View>
             <Pressable onPress={()=> {Linking.openURL("https://codepen.io/gaearon/pen/GjPyQr?editors=0011")}}>
-            <Text style={styles.codepen}>Try it on CodePen</Text>
-        </Pressable>
+                 <Text style={styles.codepen}>Try it on CodePen</Text>
+            </Pressable>
             <View style={styles.view}>
                 <Text style={styles.explanationText}>{review.explanation}</Text>
            
@@ -74,6 +75,10 @@ const styles = StyleSheet.create({
     imageView: {
        marginVertical: '5%'
 
+    },
+    codepen: {
+        marginTop: '5%',
+        fontSize: 24
     },
     reviewTitle: {
         margin: '2%',
